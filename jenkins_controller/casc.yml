@@ -18,4 +18,4 @@ jenkins:
             id: "artifactory"
             username: "admin"
             password: "password"
-            scope: "GLOBAL" 
+            scope: GLOBAL

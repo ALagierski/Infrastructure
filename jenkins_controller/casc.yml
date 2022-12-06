@@ -10,12 +10,58 @@ jenkins:
     globalMatrix:
       permissions:
       - "Overall/Administer:panda"
-  credentials:
-    system:
-      domainCredentials:
-        - credentials:
-          - usernamePassword:
-            id: "artifactory"
-            username: "admin"
-            password: "password"
-            scope: GLOBAL
+
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          id: "artifactory"
+          username: "admin"
+          password: "password"
+          scope: GLOBAL
+      - basicSSHUserPrivateKey:
+          id: "jenkins_agent"
+          username: "jenkins"
+          privateKeySource:
+            directEntry:
+              privateKey: |
+                -----BEGIN OPENSSH PRIVATE KEY-----
+                b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
+                NhAAAAAwEAAQAAAYEA1eJuslkosJpzS68na+QSnrHPw+Bj7ahzovE9ieX29ZrCXx12ySbX
+                Z0JO+rW6vJy5CVvLM4eI/hyZkOo2lURWmcOSSQ3GPfaKgesq3Q0MRt50XiUNRJbHJ6b7vw
+                FMEUM83ViDxhcQ8xX/Ne4OM9qbdZuypPAswN0Dh7dCJ39jceEyWgASRpgCOPzO24gm1hvT
+                bmvSpvcU4ntfTRFbsLKw5ZwwuDkAUVlxA875OLyZ0fY2nj19aPLmlYvXWYLL3S2JdN8k7O
+                pT89cvB0FeJdNAGvMLtFVFJ3JlmkhBRHO8V7nCIk83QyAGD3v0Vw5r50lHzxezLnWFXG97
+                v+9TZjmm2WSfdHT15m3ZajK7fS5BNQMH64XeI1i1A3qgC/X7Hz/ihmL5Lk3tsp/uxelt7k
+                rY70NJ+6wdnp5rCSr/uqlntZY2IaEMVmXlZ17lZDtp2Vpm+i+AlKQIHAOdYrLOXo28hAYc
+                f8/7MtrEoBUG8HrZWzz+FSqmQq1RNdMu+nApMTfrAAAFiDmIcRs5iHEbAAAAB3NzaC1yc2
+                EAAAGBANXibrJZKLCac0uvJ2vkEp6xz8PgY+2oc6LxPYnl9vWawl8ddskm12dCTvq1uryc
+                uQlbyzOHiP4cmZDqNpVEVpnDkkkNxj32ioHrKt0NDEbedF4lDUSWxyem+78BTBFDPN1Yg8
+                YXEPMV/zXuDjPam3WbsqTwLMDdA4e3Qid/Y3HhMloAEkaYAjj8ztuIJtYb025r0qb3FOJ7
+                X00RW7CysOWcMLg5AFFZcQPO+Ti8mdH2Np49fWjy5pWL11mCy90tiXTfJOzqU/PXLwdBXi
+                XTQBrzC7RVRSdyZZpIQURzvFe5wiJPN0MgBg979FcOa+dJR88Xsy51hVxve7/vU2Y5ptlk
+                n3R09eZt2Woyu30uQTUDB+uF3iNYtQN6oAv1+x8/4oZi+S5N7bKf7sXpbe5K2O9DSfusHZ
+                6eawkq/7qpZ7WWNiGhDFZl5Wde5WQ7adlaZvovgJSkCBwDnWKyzl6NvIQGHH/P+zLaxKAV
+                BvB62Vs8/hUqpkKtUTXTLvpwKTE36wAAAAMBAAEAAAGBALVh83J4PhOWx9QVVB8hKdE/Be
+                0dLGFti7NRVljNluOuPMwg1o27zMya5ROkbhpp5lnTaL3oYPrvEiRdG7D2ZWK9Ah/F+Kqv
+                m8KVxqHz4Mdw+8qjLV9PZtFvwOq4lOPG26Ty3b1t7kfYDbiUi6LZ7yCLy7IopCtiww2jEg
+                0g8RqwWd0NVnJbkvb1Hg/6pMTKkEGCWwCRZTq0WZun7tQolfACxyZT4LscWMVcDupYtzHh
+                1WvYxbPs2jNUhmo4i96kL/I+0rTeikySo+veHINu/ZUnruE7u4yo/X2nLQyj3Sq3qfK/sC
+                +pa5hm4n+iEylOxrDBGe2zaCxMmGDxEVB+glGCq+2f5xIFtkvknVhwcFMb8swO+gFj20E/
+                MI+5TVJ7fzkcBY1jv5k8pgYBGLoqQl4wRfBfF0wVAP/G+Wpog267Dq1hcvhG2xZJk60Tve
+                sEGNUBPnkEKwJvdcCrUP8eMw4yFrsH3gcS2oHHIVXDegezhd0sqzNA16xdqESK0ESBIQAA
+                AMB9nb2qDmnVKEAl2qPijkIOS33RRUp+zmxYwh4oZVV1wKDqn6k2A5ycffV4PQz3ljy7Fk
+                YnZ8PGjk+3mbmNq8r7D2fSC3D3HUOtPDzLUpBpIHTAfhlnZgUFtp+OTtl4/xUgBLforc3r
+                rcMIv+IAn++Wzow3Kcr8Io9NLwTicGIdfVOKWB4Wz4ZdKFR62NMDCTvWkil/gwKsXJJd0B
+                pVT0+R9h2G0t1w6eM6ZoSpTKhzkKTMmrfBzVioy3eCYKQp0dEAAADBAPhvW0CzrOQKIiY6
+                R6O4lDYIdB7uVWclmbaYOcCJrpIgG3mgHD3v+8csxWT1xp6/T9+kuYStMNHR5a7b/q86T8
+                gMuRNnE0PBFo2+WMkdhgau8L5EPFVtQRDYxaN1fsede3Wo+qrehC1T7wtdwu41ve0tzSRK
+                22ucA6Hj/S/IyyWGU/9JIHGarbf4ymNeH8omWxEzBDkGypHDYTtj8cgE4XVu3Fts5K1Q9e
+                LYoj6VpDu1VGb5fhPxjs5iTbQP3axmqQAAAMEA3GW99MN+ZMLxMZt6QGxE5neo2jcJzTtG
+                JICLyTkmvAZaUvcmhSqbvGZ1as+y/B+VyjbMKPrCQtR4Rr1VR1+A2sPoQc6Vo7sMRo61Y0
+                +/tM7c7XGnxbGdgi0Ie9uGnXD2Lztb8nJFzNaZ3+7cxxTfa8q4YJeRBfgb2/EZldJoL2nt
+                R2wanEaLk3uK6T8u/9sHayyAqKdPLcRGELupBARazUU/b9U2ybSCJ5WJEfBWPr5BvC7aJ6
+                iAX8UrXkujKIpzAAAADXBhbmRhQHZhZ3JhbnQBAgMEBQ==
+                -----END OPENSSH PRIVATE KEY-----
+          scope: GLOBAL

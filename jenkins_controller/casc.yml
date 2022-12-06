@@ -65,3 +65,20 @@ credentials:
                 iAX8UrXkujKIpzAAAADXBhbmRhQHZhZ3JhbnQBAgMEBQ==
                 -----END OPENSSH PRIVATE KEY-----
           scope: GLOBAL
+
+tool:
+  sonarRunnerInstallation:
+    installations:
+    - name: "SonarQube"
+      properties:
+      - installSource:
+          installers:
+          - sonarRunnerInstaller:
+              id: "4.7.0.2747"
+
+unclassified:
+  sonarGlobalConfiguration:
+    buildWrapperEnabled: true
+    installations:
+    - name: "SonarQube"
+      serverUrl: "http://192.168.44.44:9000"

@@ -28,6 +28,8 @@ services:
       - "8880:8080"
     volumes:
       - ./jenkins_controller/casc.yml:/usr/share/jenkins/ref/casc.yml
+    environment:
+      SSH_PRIVATE_KEY: ${SSH_PRIVATE_KEY}
     restart: always
 
   jenkins_agent:
@@ -40,8 +42,7 @@ services:
     ports:
       - "2222:22"
     environment:
-      - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDV4m6yWSiwmnNLrydr5BKesc/D4GPtqHOi8T2J5fb1msJfHXbJJtdnQk76tbq8nLkJW8szh4j+HJmQ6jaVRFaZw5JJDcY99oqB6yrdDQxG3nReJQ1Elscnpvu/AUwRQzzdWIPGFxDzFf817g4z2pt1m7Kk8CzA3QOHt0Inf2Nx4TJaABJGmAI4/M7biCbWG9Nua9Km9xTie19NEVuwsrDlnDC4OQBRWXEDzvk4vJnR9jaePX1o8uaVi9dZgsvdLYl03yTs6lPz1y8HQV4l00Aa8wu0VUUncmWaSEFEc7xXucIiTzdDIAYPe/RXDmvnSUfPF7MudYVcb3u/71NmOabZZJ90dPXmbdlqMrt9LkE1Awfrhd4jWLUDeqAL9fsfP+KGYvkuTe2yn+7F6W3uStjvQ0n7rB2enmsJKv+6qWe1ljYhoQxWZeVnXuVkO2nZWmb6L4CUpAgcA51iss5ejbyEBhx/z/sy2sSgFQbwetlbPP4VKqZCrVE10y76cCkxN+s=
-    restart: always
+      JENKINS_AGENT_SSH_PUBKEY: ${SSH_PUBLIC_KEY}
 
   sonarqube:
     depends_on:
